@@ -1,0 +1,138 @@
+{
+  "skill_name": "wnr-init-claude",
+  "note": "Les cas 0 et 1 sont les deux extrêmes du questionnaire : tout activé, tout écarté. C'est là que se logent les erreurs, parce que chaque « non » doit retirer quelque chose de la base et qu'un retrait oublié ne se voit pas à la lecture rapide. Le cas 3 vérifie le sens inverse : un projet sans interface ne doit hériter ni de la stack ni des maquettes.",
+  "evals": [
+    {
+      "id": 0,
+      "eval_name": "tout-active-staging",
+      "prompt": "init le CLAUDE.md du projet",
+      "reponses": {
+        "nom_objectif": "Facturo, facturation et suivi des paiements pour indépendants",
+        "authentification": "oui",
+        "espace_partage": "oui",
+        "rls": "oui",
+        "e2e": "oui",
+        "base_locale": "oui",
+        "equipe": "à plusieurs, avec Nicolas",
+        "trello": "non",
+        "environnements": "trois, dev → staging → main",
+        "stack": "telle quelle",
+        "regles_metier": "les montants sont stockés en centimes ; une facture émise n'est plus modifiable, on émet un avoir"
+      },
+      "expected_output": "Un CLAUDE.md reprenant la base complète, workflow git sur dev, staging et main, RLS affirmé comme frontière de sécurité, et une section Règles métier.",
+      "assertions": [
+        "Le fichier est écrit à la racine du répertoire courant",
+        "Le workflow git branche depuis dev et ouvre les PR de lot vers dev",
+        "Le workflow git compte une PR de dev vers staging pour la préproduction, puis de staging vers main pour la production, chacune sur accord explicite",
+        "La mention « RLS optionnel » est remplacée par une formulation qui affirme le RLS comme frontière de sécurité",
+        "L'espace partagé se traduit par une règle concrète de filtrage des requêtes, pas par une simple mention",
+        "Playwright et la ligne e2e locale contre le Postgres Docker sont conservés",
+        "La ligne Postgres en local dans Docker et la ligne Neon sont présentes, aucune mention de Supabase ne subsiste",
+        "Une section « ## Règles métier » contient les deux règles dictées",
+        "L'étape de fusion nomme Nicolas : une PR de Nicolas attend la relecture d'Adrien",
+        "Aucune section « ## Trello » ni mention de carte Trello",
+        "Aucun marqueur de gabarit ne subsiste et aucun emoji n'apparaît",
+        "Les blocs invariants (Session Continuity, Archivage, Méthode de développement, Messages de commit) sont recopiés sans réécriture",
+        "Une section « ## Maquettes » impose de maquetter tous les écrans avant d'écrire du code applicatif",
+        "La navigation d'écran en écran par ancres portées par les boutons est explicitement demandée",
+        "Le point d'arrêt de validation (aucun code applicatif avant accord sur les maquettes) figure noir sur blanc",
+        "Les états vide, chargement et erreur sont exigés en plus du chemin heureux"
+      ]
+    },
+    {
+      "id": 1,
+      "eval_name": "tout-ecarte-main",
+      "prompt": "init le CLAUDE.md du projet",
+      "reponses": {
+        "nom_objectif": "Veille, tableau de bord public d'indicateurs du marché de l'IA en France",
+        "authentification": "non, application publique en lecture seule",
+        "e2e": "non",
+        "base_locale": "non",
+        "environnements": "deux, dev → main",
+        "stack": "retirer Prisma et Vercel Blob, les données viennent d'un import quotidien",
+        "regles_metier": "aucune"
+      },
+      "expected_output": "Un CLAUDE.md amputé de tout ce qui a été écarté, sans mention résiduelle d'authentification, de Prisma, de Storage, de Playwright ni de Docker.",
+      "assertions": [
+        "Les questions « espace partagé » et « RLS » ne sont pas posées, l'authentification étant écartée",
+        "La ligne d'authentification Neon Auth est retirée",
+        "Prisma et Vercel Blob sont absents du fichier",
+        "Playwright, la ligne e2e et la ligne Postgres en local dans Docker sont absents",
+        "Le workflow git tourne sur dev et main, sans aucune mention de staging, et la mise en production passe par une PR de dev vers main",
+        "Aucune section Règles métier n'est créée",
+        "Aucune règle ne fait référence à un utilisateur courant, à un espace ou à une invitation, ce qui n'aurait pas de sens sans authentification",
+        "Aucun marqueur de gabarit ne subsiste et aucun emoji n'apparaît",
+        "La section « ## Maquettes » est conservée : l'absence d'authentification ne retire pas les écrans",
+        "Aucune maquette d'écran de connexion ou de compte n'est exigée, l'application étant publique"
+      ]
+    },
+    {
+      "id": 2,
+      "eval_name": "depot-existant",
+      "prompt": "on reprend le dépôt de l'API interne, y'a déjà 200 fichiers dedans, tu peux me faire le CLAUDE.md ?",
+      "files": [],
+      "expected_output": "Claude signale en deux phrases que la commande /init intégrée est mieux placée pour documenter de l'existant, avant tout questionnaire.",
+      "assertions": [
+        "La commande /init intégrée est explicitement signalée comme mieux adaptée",
+        "L'alerte intervient avant que le questionnaire ne soit déroulé",
+        "La réserve tient en deux phrases, sans sermon",
+        "Le nom de la branche de production est lu par git et non supposé main",
+        "Aucune techno absente du dépôt et jamais nommée par l'utilisateur n'est affirmée dans le fichier",
+        "Aucun fichier n'est écrit dans le dépôt fixture lui-même"
+      ],
+      "prerequis": "Créer un dépôt factice : une API Express en TypeScript avec package.json (express, zod, pg, scripts tsx et vitest), une centaine de fichiers répartis en src/routes, src/services, src/models et tests, et un dépôt git initialisé sur une branche nommée master pour vérifier que le skill ne suppose pas main."
+    },
+    {
+      "id": 3,
+      "eval_name": "projet-simple-sans-maquettes",
+      "prompt": "init le CLAUDE.md, c'est un script de synchronisation qui tourne en cron, pas d'interface",
+      "reponses": {
+        "nom_objectif": "Sync-compta, synchronise les écritures comptables entre deux outils, tourne en cron",
+        "nature": "projet simple",
+        "verification": "aucune",
+        "regles_metier": "aucune"
+      },
+      "expected_output": "Un CLAUDE.md réduit à la méthode de travail, sans stack ni maquettes, et dont le workflow git tourne sur dev et main, en quatre étapes.",
+      "assertions": [
+        "Le lot de questions fullstack n'est pas posé, ni aucune question sur les branches",
+        "Le workflow git branche depuis dev et met en production par une PR de dev vers main, sans mention de staging",
+        "Aucune section « ## Stack » n'apparaît",
+        "Aucune section « ## Maquettes » n'apparaît, ni aucune mention d'écran, de parcours ou de design",
+        "L'étape de vérification du workflow git est supprimée et les étapes suivantes sont renumérotées",
+        "La phrase sur l'écriture des tests est retirée de l'étape de commit",
+        "Les blocs invariants (Session Continuity, Archivage, Méthode de développement, Messages de commit) sont recopiés sans réécriture"
+      ]
+    },
+    {
+      "id": 4,
+      "eval_name": "atelier-portail-robots",
+      "prompt": "init le CLAUDE.md du projet",
+      "reponses": {
+        "nom_objectif": "Studio Kalia, production de posts pour des restaurants, validés par chaque client sur son portail",
+        "nature": "atelier local, portail client",
+        "espace_partage": "non",
+        "rls": "non",
+        "e2e": "non",
+        "base_locale": "non",
+        "equipe": "Adrien seul",
+        "trello": "non",
+        "environnements": "deux, dev → main",
+        "stack": "telle quelle",
+        "creation": "en local et dans des robots planifiés",
+        "regles_metier": "aucune"
+      },
+      "expected_output": "Un CLAUDE.md web (stack, maquettes) avec la section Architecture : atelier local, portail client juste après la stack, une connexion par code e-mail, et la mention des robots planifiés.",
+      "assertions": [
+        "La question d'authentification n'a pas été posée",
+        "La ligne d'authentification parle d'un code à usage unique envoyé par e-mail, plus d'email et mot de passe",
+        "Une section « ## Architecture : atelier local, portail client » suit immédiatement la section « ## Stack »",
+        "La section interdit tout appel à un modèle d'IA depuis le portail",
+        "La section décrit les rôles admin et client et la table d'accès",
+        "Les robots planifiés (GitHub Actions) sont nommés dans la description de l'atelier, et aucun marqueur <robots> ne subsiste",
+        "La section « ## Maquettes » est présente",
+        "Le workflow git ne mentionne pas staging",
+        "Aucune section « ## Règles métier » ni « ## Trello »"
+      ]
+    }
+  ]
+}

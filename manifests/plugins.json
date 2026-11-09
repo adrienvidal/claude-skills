@@ -1,0 +1,23 @@
+{
+  "enabledPlugins": {
+    "context7@claude-plugins-official": true,
+    "superpowers@claude-plugins-official": true,
+    "marketing-skills@marketingskills": true,
+    "fullstack-app-builder@synced": false,
+    "vercel@claude-plugins-official": true
+  },
+  "extraKnownMarketplaces": {
+    "marketingskills": {
+      "source": {
+        "source": "github",
+        "repo": "coreyhaines31/marketingskills"
+      }
+    },
+    "ia-library": {
+      "source": {
+        "source": "directory",
+        "path": "/Users/adrienvidal/Workspace/ia-library"
+      }
+    }
+  }
+}

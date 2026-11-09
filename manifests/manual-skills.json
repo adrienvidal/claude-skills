@@ -1,0 +1,25 @@
+{
+  "_note": "Skills tiers copi\u00e9s \u00e0 la main dans ~/.claude/skills (hors lockfile). Sources pr\u00e9sum\u00e9es.",
+  "anthropics/skills": [
+    "algorithmic-art",
+    "brand-guidelines",
+    "canvas-design",
+    "claude-api",
+    "doc-coauthoring",
+    "docx",
+    "frontend-design",
+    "internal-comms",
+    "mcp-builder",
+    "pdf",
+    "pptx",
+    "skill-creator",
+    "slack-gif-creator",
+    "theme-factory",
+    "web-artifacts-builder",
+    "webapp-testing",
+    "xlsx"
+  ],
+  "vercel-labs/agent-skills": [
+    "react-best-practices"
+  ]
+}

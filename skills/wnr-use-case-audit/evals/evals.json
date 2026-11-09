@@ -1,0 +1,17 @@
+{
+  "skill_name": "wnr-use-case-audit",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Fais un audit complet de tous les use cases de l'app. Dis-moi lesquels sont des doublons ou inutiles, et propose-moi les meilleurs use cases à rajouter. Utilise la veille internet et Playwright si besoin.",
+      "expected_output": "Rapport Markdown daté dans audits/ : carte du produit, inventaire des use cases existants avec preuves code + statut Playwright, section doublons/dead/low-value avec recommandations, veille concurrentielle sourcée, shortlist priorisée (Impact x Effort) des ajouts, TL;DR + résumé oral des 3 findings et top 3 ajouts.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Cartographie ce que les utilisateurs peuvent faire dans l'app aujourd'hui, et dis-moi ce qu'on devrait construire ensuite.",
+      "expected_output": "Le skill se déclenche malgré le phrasing 'features/cartographie' plutôt que 'use cases'. Même structure de rapport ; l'accent penche vers l'inventaire (Phase 1) et les propositions (Phase 4).",
+      "files": []
+    }
+  ]
+}
