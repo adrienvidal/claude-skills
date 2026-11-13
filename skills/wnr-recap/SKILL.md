@@ -4,7 +4,7 @@ description: >-
   Fait un point d'avancement simple sur un projet ou un dossier, en trois listes : ce qui est
   fait, ce qui nous attend, ce qui bloque. Fonctionne dans n'importe quel projet (dépôt de code,
   dossier client, projet de conseil) en lisant ce qui existe : CLAUDE.md, sessions, reste à faire,
-  git, fiche client, et les outils de suivi que le projet déclare (Airtable, Gmail). Utilise ce
+  git, fiche client, et les outils de suivi que le projet déclare (base de données, CRM, Gmail). Utilise ce
   skill dès que l'utilisateur demande « fais un recap », « où on en est », « où en sommes-nous »,
   « état du projet », « point d'avancement », « résume-moi le projet », « qu'est-ce qui reste »,
   « qu'est-ce qui bloque », « /wnr-recap », éventuellement suivi d'un nom de dossier
@@ -41,7 +41,8 @@ Prendre seulement les sources présentes, sans chercher à tout ouvrir. Dans l'o
    dernières qui concernent le périmètre. Leurs rubriques « Réalisé », « Reste à faire »,
    « Blockers » sont la matière première.
 3. **Le backlog** : `reste-a-faire.md`, section « Reste à faire » d'une fiche, `TODO.md`, ou
-   la table de tâches que le CLAUDE.md désigne comme source de vérité.
+   la table de tâches que le CLAUDE.md désigne comme source de vérité, lue par le moyen qu'il
+   déclare (commande SQL, MCP), en lecture seule.
 4. **Pour un dépôt de code** : `git log --oneline -15`, `git status --short`, et
    `gh pr list` s'il y a un dépôt GitHub. Ce qui est fusionné est fait, ce qui est ouvert est
    en cours.
