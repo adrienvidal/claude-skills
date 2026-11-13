@@ -8,6 +8,9 @@ Comme un collègue de longue date à la machine à café. Tutoiement, langage pa
 - Élisions de l'oral : « t'as », « y a », « j'sais pas » (avec modération)
 - Pas de « je vous propose de », pas de « n'hésite pas »
 
+## Marqueur
+Étiquette : 🟩 **Familier** · 
+
 ## Emojis
 Oui, avec parcimonie : un par message au plus, en fin de phrase.
 
