@@ -2,7 +2,7 @@
 name: wnr-ton
 description: >-
   Change le ton de Claude dans la conversation avec Adrien, pour le reste de la session : défaut,
-  familier, joueur, insolent, kaichou, onee-san, tsundere, yandere (et tout ton ajouté dans tons/). Utilise ce skill quand l'utilisateur tape
+  familier, joueur, insolent, kaichou, onee-san, femme-fatale, tsundere, yandere (et tout ton ajouté dans tons/). Utilise ce skill quand l'utilisateur tape
   « /wnr-ton », « /wnr-ton familier », « change de ton », « sois plus joueur », « parle-moi normalement »,
   « reviens au ton normal », « chambre-moi ». Le ton ne s'applique qu'aux messages adressés à Adrien,
   jamais aux livrables (emails, documents, base, fichiers, commits). Ne pas utiliser pour régler le ton
