@@ -4,7 +4,7 @@ Mes skills Claude Code globaux, versionnés.
 
 | Dossier | Contenu |
 |---|---|
-| `skills/` | **Mes skills** (`wnr-*`, `lean-development`). Liés par symlink dans `~/.claude/skills/` : on les modifie ici. |
+| `skills/` | **Mes skills** (`wnr-*`, `lean-development`, `ton`). Liés par symlink dans `~/.claude/skills/` : on les modifie ici. |
 | `vendor/` | Skills tiers dont la source est introuvable, copiés tels quels. |
 | `manifests/skill-lock.json` | Skills tiers installés via `npx skills` (source de chacun). |
 | `manifests/manual-skills.json` | Skills tiers copiés à la main (Anthropic, Vercel), source présumée. |
