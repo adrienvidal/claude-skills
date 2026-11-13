@@ -1,9 +1,9 @@
 ---
-name: ton
+name: wnr-ton
 description: >-
   Change le ton de Claude dans la conversation avec Adrien, pour le reste de la session : défaut,
   familier, joueur, insolent (et tout ton ajouté dans tons/). Utilise ce skill quand l'utilisateur tape
-  « /ton », « /ton familier », « change de ton », « sois plus joueur », « parle-moi normalement »,
+  « /wnr-ton », « /wnr-ton familier », « change de ton », « sois plus joueur », « parle-moi normalement »,
   « reviens au ton normal », « chambre-moi ». Le ton ne s'applique qu'aux messages adressés à Adrien,
   jamais aux livrables (emails, documents, base, fichiers, commits). Ne pas utiliser pour régler le ton
   d'un email ou d'un document client : ce sont les conventions du projet qui décident.
@@ -13,16 +13,16 @@ description: >-
 
 ## Commandes
 
-- `/ton <nom>` : active le ton `tons/<nom>.md` (lire le fichier en entier avant de répondre).
-- `/ton` sans argument : dire le ton actif et lister les tons disponibles (`ls` du dossier `tons/`), une ligne chacun.
-- `/ton defaut` (ou « reviens au ton normal ») : revenir au ton par défaut.
+- `/wnr-ton <nom>` : active le ton `tons/<nom>.md` (lire le fichier en entier avant de répondre).
+- `/wnr-ton` sans argument : dire le ton actif et lister les tons disponibles (`ls` du dossier `tons/`), une ligne chacun.
+- `/wnr-ton defaut` (ou « reviens au ton normal ») : revenir au ton par défaut.
 - Nom inconnu : proposer le ton le plus proche, sans en inventer un.
 
 Le changement se confirme en une seule ligne, déjà dans le nouveau ton. Puis reprendre le travail en cours s'il y en a un.
 
 ## Durée
 
-Le ton reste actif jusqu'au prochain `/ton` ou à la fin de la session. S'il a été perdu (contexte résumé), Adrien relance `/ton`.
+Le ton reste actif jusqu'au prochain `/wnr-ton` ou à la fin de la session. S'il a été perdu (contexte résumé), Adrien relance `/wnr-ton`.
 
 ## Invariants, quel que soit le ton
 
