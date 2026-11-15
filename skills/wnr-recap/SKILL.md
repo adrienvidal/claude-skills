@@ -11,6 +11,8 @@ description: >-
   (« recap pyrene »), en français comme en anglais (« status update », « where are we at »).
   Déclenche aussi quand l'utilisateur redemande « sois simple » après un récapitulatif trop
   chargé, y compris en cours de session dans un projet qui a son propre récapitulatif de reprise.
+  Ne l'utilise jamais sur « resume », « résume », « resume simple » ou « résumé simple » : c'est une
+  demande de reformuler en court la réponse qui précède, sans relire le projet.
   Ne l'utilise pas pour l'ouverture de session elle-même (« start », « on reprend ») quand le
   CLAUDE.md définit un format de reprise (bloc Reprise, J-n) : celui-là prime. Ne l'utilise pas
   non plus pour rédiger un compte rendu de réunion ou un email au client.
