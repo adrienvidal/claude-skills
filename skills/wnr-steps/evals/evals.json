@@ -1,0 +1,29 @@
+{
+  "skill_name": "wnr-steps",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Donne-moi les étapes pour déclarer un nom d'expéditeur SMS sur Brevo.",
+      "expected_output": "Liste à puces sans statuts (rien n'est commencé), une action concrète par ligne avec le chemin dans Brevo (Settings > Transactional SMS), la contrainte de 11 caractères, aucune explication du pourquoi, une seule question finale qui propose la première étape.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Contexte : la liste Brevo a déjà été donnée plus haut (vérifier le compte ✅, ajouter ecole-pyrene.fr ⛔, nom d'expéditeur SMS ⏳, déclarer bonjour@ecole-pyrene.fr ⏳). Depuis, j'ai fait le nom d'expéditeur SMS et l'école a répondu qu'on garde pyrene.fr. Redonne la liste des steps.",
+      "expected_output": "Liste mise à jour, pas répétée : nom d'expéditeur SMS passe en ✅, l'étape ecole-pyrene.fr disparaît ou est remplacée par une étape sur pyrene.fr, l'expéditeur devient une adresse en pyrene.fr. Une seule question finale qui propose l'étape suivante.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Comment je fais pour brancher mon domaine OVH sur Vercel ? Le mail est aussi chez OVH et il marche.",
+      "expected_output": "Étapes concrètes avec chemins dans Vercel et OVH, signalement des gestes qui demandent la main de l'utilisateur (connexion OVH), une ligne explicite qui met en garde contre la modification des enregistrements MX ou mail chez OVH, une seule question finale.",
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "On en est où sur le projet ? Fais un recap.",
+      "expected_output": "Ne déclenche PAS wnr-steps : c'est un point d'avancement de projet, qui relève de wnr-recap.",
+      "files": []
+    }
+  ]
+}
