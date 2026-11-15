@@ -49,9 +49,10 @@ Le dossier `.claude/sessions/` ne garde visibles à la racine que les sessions u
 - **Archiver, ne pas supprimer** : déplacer via `git mv` vers `archive/` (réversible, tracé dans git). Une session est archivable quand elle est close et que son contenu vit déjà ailleurs (code, CLAUDE.md, Trello, git).
 - **Filet anti-oubli, impératif** : avant d'archiver une session, reporter chacun de ses « Reste à faire » encore ouverts dans `.claude/sessions/reste-a-faire.md` (le backlog vivant, jamais archivé). Ne jamais archiver une session tant qu'un item ouvert n'a pas été soit fait, soit reporté dans ce backlog. Cocher puis retirer un item du backlog quand il est fait.
 - **Quand** : en fin de session, après avoir sauvegardé le résumé du jour, vérifier si d'anciennes sessions sont devenues archivables et les déplacer.
+- **Archivage automatique** : le déplacement se fait sans demander, une fois le filet anti-oubli passé. En cas de doute (chantier peut-être encore ouvert), la session reste à la racine. Les sessions archivées sont listées dans « Réalisé » du résumé du jour.
 - **Ne jamais toucher** au « Reste à faire » de la session active la plus récente : c'est la liste de priorités vivante.
 - **Hygiène de fond** au passage : corriger une contradiction à sa source (pas seulement dans le dernier fichier), refermer un « Reste à faire » qu'une session ultérieure a accompli, signaler une info devenue fausse (par exemple un agent supprimé depuis).
-- **Toute suppression ou déplacement se confirme avec Adrien** avant d'agir.
+- **Toute suppression se confirme avec Adrien** avant d'agir.
 
 Rappel : les fichiers de session sont un journal de passation, pas la mémoire vivante.
 
@@ -130,8 +131,12 @@ On ne passe d'une branche à la suivante que par une PR.
 5. Ne jamais fusionner sans accord explicite. **Seul Adrien fusionne** : une PR
    de <équipiers> attend dans In review qu'Adrien la relise.
    Seule exception : la PR de résumé de fin de session ouverte par Claude
-   (`docs/session-*`, seul le fichier de session touché), que Claude fusionne
-   lui-même dès les tests verts.
+   (`docs/session-*`, seuls des fichiers de `.claude/sessions/` touchés), que
+   Claude fusionne lui-même dès les tests verts. Quand la fusion d'une PR clôt
+   la session, le résumé s'écrit avant et se committe dans sa branche. S'il ne
+   reste ensuite que des fichiers de `.claude/sessions/` à committer (résumé,
+   archives, `reste-a-faire.md`), Claude enchaîne sans demander : branche
+   `docs/session-*`, commit `docs: update session summary`, PR, fusion.
 6. Après fusion : revenir sur `dev`, `git pull`, supprimer la branche, et
    passer la carte dans **Done**.
 7. Mettre en préproduction : `gh pr create --base staging --head dev`, sur accord
