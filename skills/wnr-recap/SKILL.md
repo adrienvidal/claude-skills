@@ -2,22 +2,15 @@
 name: wnr-recap
 description: >-
   Fait un point d'avancement simple sur un projet ou un dossier, en trois listes : ce qui est
-  fait, ce qui nous attend, ce qui bloque. Fonctionne dans n'importe quel projet (dépôt de code,
-  dossier client, projet de conseil) en lisant ce qui existe : CLAUDE.md, sessions, reste à faire,
-  git, fiche client, et les outils de suivi que le projet déclare (base de données, CRM, Gmail). Utilise ce
-  skill dès que l'utilisateur demande « fais un recap », « où on en est », « où en sommes-nous »,
-  « état du projet », « point d'avancement », « résume-moi le projet », « qu'est-ce qui reste »,
-  « qu'est-ce qui bloque », « /wnr-recap », éventuellement suivi d'un nom de dossier
-  (« recap pyrene »), en français comme en anglais (« status update », « where are we at »).
-  Déclenche aussi quand l'utilisateur redemande « sois simple » après un récapitulatif trop
-  chargé, y compris en cours de session dans un projet qui a son propre récapitulatif de reprise.
-  Ne l'utilise jamais sur « resume », « résume », « resume simple » ou « résumé simple » : c'est une
-  demande de reformuler en court la réponse qui précède, sans relire le projet.
-  Ne l'utilise pas pour lister les étapes vers un but précis (« donne-moi les étapes »,
-  « redonne la liste des steps », « comment je fais pour ») : c'est `wnr-steps`.
-  Ne l'utilise pas pour l'ouverture de session elle-même (« start », « on reprend ») quand le
-  CLAUDE.md définit un format de reprise (bloc Reprise, J-n) : celui-là prime. Ne l'utilise pas
-  non plus pour rédiger un compte rendu de réunion ou un email au client.
+  fait, ce qui nous attend, ce qui bloque, en lisant ce que le projet contient (sessions,
+  backlog, git, fiche client, outils de suivi déclarés). À utiliser sur « fais un recap »,
+  « où on en est », « état du projet », « point d'avancement », « qu'est-ce qui reste »,
+  « /wnr-recap », suivi ou non d'un nom de dossier (« recap pyrene »), et sur « status update ».
+  Aussi quand l'utilisateur redemande « sois simple » après un récapitulatif trop chargé.
+  Jamais sur « resume » ou « résume » : c'est reformuler en court la réponse qui précède.
+  Pas pour les étapes vers un but précis (« donne-moi les étapes ») : c'est `wnr-steps`.
+  Pas pour l'ouverture de session (« start ») quand le CLAUDE.md définit son propre format de
+  reprise. Pas pour un compte rendu de réunion ni un email au client.
 ---
 
 # wnr-recap : faire le point, simplement
