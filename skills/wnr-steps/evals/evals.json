@@ -3,14 +3,14 @@
   "evals": [
     {
       "id": 1,
-      "prompt": "Donne-moi les étapes pour déclarer un nom d'expéditeur SMS sur Brevo.",
-      "expected_output": "Liste à puces sans statuts (rien n'est commencé), une action concrète par ligne avec un chemin dans Brevo (signalé comme non vérifié s'il n'a pas pu l'être), la connexion signalée dans l'étape qui la demande, la contrainte de 11 caractères, aucune explication du pourquoi, une seule question finale qui propose la première étape.",
+      "prompt": "Donne-moi les étapes pour ajouter chez OVH les enregistrements DNS que Brevo demande pour pyrene.fr : deux CNAME brevo1._domainkey et brevo2._domainkey, et un TXT brevo-code. Le mail de pyrene.fr passe par OVH et marche.",
+      "expected_output": "Liste à puces sans statuts, une action par ligne avec le chemin OVH (signalé non vérifié s'il n'a pas pu l'être), la connexion OVH signalée dans l'étape qui la demande, un ⚠️ contre la suppression des enregistrements existants placé avant la première modification, aucune explication du pourquoi, une seule question finale.",
       "files": []
     },
     {
       "id": 2,
-      "prompt": "Contexte : la liste Brevo a déjà été donnée plus haut (vérifier le compte ✅, ajouter ecole-pyrene.fr ⛔, nom d'expéditeur SMS ⏳, déclarer bonjour@ecole-pyrene.fr ⏳). Depuis, j'ai fait le nom d'expéditeur SMS et l'école a répondu qu'on garde pyrene.fr. Redonne la liste des steps.",
-      "expected_output": "Liste mise à jour, pas répétée : nom d'expéditeur SMS passe en ✅, l'étape ecole-pyrene.fr disparaît ou est remplacée par une étape sur pyrene.fr, l'expéditeur devient une adresse en pyrene.fr. Une seule question finale qui propose l'étape suivante.",
+      "prompt": "Contexte : la liste Brevo a déjà été donnée plus haut (vérifier le compte ✅, demander à l'école ✅, libérer ecole-pyrene.fr ⛔, une fois le domaine libre l'ajouter ⏳, une fois authentifié déclarer bonjour@ecole-pyrene.fr ⏳). Depuis, l'école a répondu qu'on garde pyrene.fr, déjà authentifié dans Brevo. Redonne la liste des steps.",
+      "expected_output": "Liste mise à jour, pas répétée : les étapes sur ecole-pyrene.fr (blocage, ajout du domaine) disparaissent, l'expéditeur devient une adresse en pyrene.fr, déjà authentifié, avec la décision en quelques mots (« on garde pyrene.fr »). Une seule question finale qui propose l'étape suivante.",
       "files": []
     },
     {
