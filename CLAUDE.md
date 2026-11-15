@@ -53,9 +53,10 @@ Le dossier `.claude/sessions/` ne garde visibles à la racine que les sessions u
 - **Archiver, ne pas supprimer** : déplacer via `git mv` vers `archive/` (réversible, tracé dans git). Une session est archivable quand elle est close et que son contenu vit déjà ailleurs (code, CLAUDE.md, Trello, git).
 - **Filet anti-oubli, impératif** : avant d'archiver une session, reporter chacun de ses « Reste à faire » encore ouverts dans `.claude/sessions/reste-a-faire.md` (le backlog vivant, jamais archivé). Ne jamais archiver une session tant qu'un item ouvert n'a pas été soit fait, soit reporté dans ce backlog. Cocher puis retirer un item du backlog quand il est fait.
 - **Quand** : en fin de session, après avoir sauvegardé le résumé du jour, vérifier si d'anciennes sessions sont devenues archivables et les déplacer.
+- **Archivage automatique** : le déplacement se fait sans demander, une fois le filet anti-oubli passé. En cas de doute (chantier peut-être encore ouvert), la session reste à la racine. Les sessions archivées sont listées dans « Réalisé » du résumé du jour.
 - **Ne jamais toucher** au « Reste à faire » de la session active la plus récente : c'est la liste de priorités vivante.
 - **Hygiène de fond** au passage : corriger une contradiction à sa source (pas seulement dans le dernier fichier), refermer un « Reste à faire » qu'une session ultérieure a accompli, signaler une info devenue fausse (par exemple un agent supprimé depuis).
-- **Toute suppression ou déplacement se confirme avec Adrien** avant d'agir.
+- **Toute suppression se confirme avec Adrien** avant d'agir.
 
 Rappel : les fichiers de session sont un journal de passation, pas la mémoire vivante.
 
@@ -78,6 +79,9 @@ donc rien ; le filet de sécurité, c'est l'historique git (`git revert`).
 1. Un commit par changement cohérent (un skill modifié, un manifeste mis à jour).
 2. `bash -n *.sh` au vert avant tout commit qui touche un script.
 3. `git push` après chaque commit, pour que GitHub reste la sauvegarde à jour.
+   S'il ne reste que des fichiers de `.claude/sessions/` à committer (résumé,
+   archives, `reste-a-faire.md`), Claude committe et pousse sans demander :
+   `docs: update session summary`.
 4. Refonte profonde d'un skill, où l'ancienne version doit rester active
    pendant le travail : la faire dans un worktree séparé
    (`git worktree add ../claude-skills-<sujet> -b <sujet>`), puis fusionner
