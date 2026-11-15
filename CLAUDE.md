@@ -8,13 +8,33 @@ En début de session :
 
 - Lire le fichier de la dernière session dans `.claude/sessions/`
 - Identifier où on s'est arrêté et les blockers en cours
-- Résumer en 3 lignes avant de commencer
+- Recopier son bloc « Reprise » (à défaut, le rédiger), puis finir par une seule
+  question qui porte la proposition
 
 En fin de session :
 
 - Sauvegarder un résumé dans `.claude/sessions/[date]_[sujet].md`
-- Inclure : Réalisé, Reste à faire, Blockers, Décisions
-- Si un fichier existe déjà pour aujourd'hui, le compléter plutôt que le remplacer
+- Commencer par un bloc « Reprise » juste sous le titre, puis : Réalisé, Reste à
+  faire, Blockers, Décisions
+- Si un fichier existe déjà pour aujourd'hui, le compléter plutôt que le remplacer,
+  bloc « Reprise » compris
+
+Gabarit du bloc « Reprise » (une ligne par rubrique, phrases courtes, échéance
+datée entre parenthèses, et pour les blockers seulement qui on attend), sous un
+titre `## Reprise` et dans un bloc de code pour garder l'alignement :
+
+```
+✅ Fait      Base restructurée, interface republiée, formulaire en ligne
+⛔ Bloqué    Clé d'API (Juliette), accès Microsoft 365 (Alexis)
+🎯 Priorité  Import du tableau de Mathilde (échéance 06/11)
+```
+
+En début de session, ajouter « J-n » à l'échéance (calculé avec `date`) et coiffer
+le bloc de « Reprise · JJ/MM · sujet ». Les trois pictogrammes restent dans les
+fichiers de session et le récapitulatif.
+
+Ce bloc est aussi ce que le hook de fin de session publie dans le Cockpit (bloc
+« À côté ») : une session sans bloc « Reprise » n'y apparaît pas.
 
 Format du nom de fichier : `YYYY-MM-DD_sujet-en-kebab-case.md`
 Exemple : `2026-03-10_audit-cabinet-merlin.md`

@@ -3,7 +3,7 @@
 ## Reprise
 
 ```
-✅ Fait      wnr-steps créé, testé sur 4 cas, lié et poussé ; wnr-recap resserré
+✅ Fait      wnr-steps créé et poussé ; bloc « Reprise » dans wnr-init-claude et ce CLAUDE.md
 ⛔ Bloqué    Rien
 🎯 Priorité  Tester wnr-steps en vrai dans onyx-pyrene, vérifier le chemin Brevo de l'exemple
 ```
@@ -47,6 +47,8 @@ On passe au nom d'expéditeur SMS ?
 - Renvoi croisé entre `wnr-recap` et `wnr-steps` dans les descriptions (`5d0d6f1`).
 - Deux passes de revue sur `wnr-steps` : relecture (5 corrections), puis test par un agent neuf sur 4 cas, tous conformes, 7 précisions ajoutées (`c041719`).
 - Description de `wnr-recap` ramenée de 1 540 à 873 caractères, sous la limite de 1 024 (`f301706`).
+- Deuxième session du jour : commit de la modif en attente de `wnr-init-claude`, la base remplace « résumer en 3 lignes » par le bloc « Reprise » (`1f8937c`).
+- `CLAUDE.md` de ce dépôt aligné sur la nouvelle base (bloc « Reprise » en début et fin de session).
 
 ## Reste à faire
 
@@ -63,3 +65,4 @@ Aucun.
 - Deux passes de revue, pas trois : la troisième aurait relu le même texte pour peu de gain.
 - Écartés : étape de vérification finale systématique, détail des valeurs DNS.
 - Un seul geste = une ligne, avec ⚠️ et « Je le fais ? » permis.
+- Le bloc « Reprise » remplace le résumé en 3 lignes, partout (base `wnr-init-claude` et ce dépôt).
