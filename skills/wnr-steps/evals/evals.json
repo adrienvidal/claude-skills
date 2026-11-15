@@ -4,7 +4,7 @@
     {
       "id": 1,
       "prompt": "Donne-moi les étapes pour déclarer un nom d'expéditeur SMS sur Brevo.",
-      "expected_output": "Liste à puces sans statuts (rien n'est commencé), une action concrète par ligne avec le chemin dans Brevo (Settings > Transactional SMS), la contrainte de 11 caractères, aucune explication du pourquoi, une seule question finale qui propose la première étape.",
+      "expected_output": "Liste à puces sans statuts (rien n'est commencé), une action concrète par ligne avec un chemin dans Brevo (signalé comme non vérifié s'il n'a pas pu l'être), la connexion signalée dans l'étape qui la demande, la contrainte de 11 caractères, aucune explication du pourquoi, une seule question finale qui propose la première étape.",
       "files": []
     },
     {
@@ -23,6 +23,12 @@
       "id": 4,
       "prompt": "On en est où sur le projet ? Fais un recap.",
       "expected_output": "Ne déclenche PAS wnr-steps : c'est un point d'avancement de projet, qui relève de wnr-recap.",
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "Comment je fais pour annuler mon dernier commit sans perdre les changements ?",
+      "expected_output": "Un seul geste : réponse en une ligne (git reset --soft HEAD~1), sans liste à puces. Permis : une ligne ⚠️ si le commit a déjà été poussé, et « Je le fais ? » puisque Claude peut lancer la commande.",
       "files": []
     }
   ]
