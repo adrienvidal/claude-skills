@@ -5,7 +5,7 @@
 ```
 ✅ Fait      wnr-steps créé ; wnr-init-claude archive et committe les fichiers de session sans demander
 ⛔ Bloqué    Rien
-🎯 Priorité  Tester wnr-steps en vrai dans onyx-pyrene, vérifier le chemin Brevo de l'exemple
+🎯 Priorité  Premier usage réel de wnr-steps dans onyx-pyrene
 ```
 
 Note déposée depuis la session onyx-pyrene du 15/11 (étapes Brevo), puis skill construit le même jour.
@@ -50,11 +50,11 @@ On passe au nom d'expéditeur SMS ?
 - Deuxième session du jour : commit de la modif en attente de `wnr-init-claude`, la base remplace « résumer en 3 lignes » par le bloc « Reprise » (`1f8937c`).
 - `CLAUDE.md` de ce dépôt aligné sur la nouvelle base (bloc « Reprise » en début et fin de session).
 - Troisième session : base `wnr-init-claude`, l'archivage des sessions se fait sans confirmation (seule la suppression se confirme), le résumé s'écrit avant la fusion d'une PR qui clôt la session, et des restes limités à `.claude/sessions/` partent seuls en PR `docs/session-*` fusionnée par Claude (`397141f`). Même règle dans ce `CLAUDE.md`, en commit direct sur `main` (`ee96882`).
+- Test de `wnr-steps` sur le cas réel du domaine ecole-pyrene.fr, puis réécriture plus courte (1 251 → 815 mots) : exemple remplacé par ce cas réel, l'ancien chemin `Settings > Transactional SMS` étant faux (le nom d'expéditeur SMS se passe à chaque envoi). Repasse par un agent neuf sur les 5 cas : 8 précisions appliquées, evals 1 et 2 corrigées (`1c125e6`).
 
 ## Reste à faire
 
 - [ ] Premier usage réel de `wnr-steps` dans onyx-pyrene : vérifier qu'il se déclenche et que le format tient.
-- [ ] Vérifier sur le compte Brevo que `Settings > Transactional SMS` est le bon chemin ; sinon corriger l'exemple du skill.
 
 ## Blockers
 
@@ -68,3 +68,4 @@ Aucun.
 - Un seul geste = une ligne, avec ⚠️ et « Je le fais ? » permis.
 - Le bloc « Reprise » remplace le résumé en 3 lignes, partout (base `wnr-init-claude` et ce dépôt).
 - Restes de session : PR fusionnée par Claude plutôt que commit direct sur `dev`. Pas de hook d'auto-commit pour l'instant, à ajouter si la règle écrite est oubliée.
+- `wnr-steps` : « comment je fais pour » déclenche aussi pour un seul geste (réponse en une ligne) ; une ligne = un écran ; ⚠️ à l'impératif.
