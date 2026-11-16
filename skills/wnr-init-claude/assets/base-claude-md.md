@@ -187,6 +187,12 @@ membre : ces gestes se font dans Trello.
 - Neon (Postgres serverless) en ligne : une branche de base pour la production,
   une pour la préproduction (`staging`), et une par déploiement de
   prévisualisation via l'intégration Vercel ; RLS optionnel
+- Branches Neon d'aperçu : quand un aperçu Vercel échoue parce que la limite de
+  branches est atteinte (« Resource provisioning failed », 10 en offre gratuite),
+  Claude supprime lui-même les branches `preview/*` (`npx neonctl branches list`
+  puis `delete`), sans demander : c'est l'exception à « toute suppression se
+  confirme ». Jamais la branche de production `main` ni celle de préproduction
+  `staging`. Le noter dans « Réalisé »
 - Authentification par email et mot de passe via Neon Auth, pas de lien magique
   ni d'autre fournisseur sans le demander
 - Stockage de fichiers sur Vercel Blob
