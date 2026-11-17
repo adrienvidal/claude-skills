@@ -2,7 +2,8 @@
 name: wnr-steps
 description: >-
   Donne les étapes pour aller de là où on en est jusqu'à un but précis, en puces courtes : une
-  action par ligne, avec le chemin exact dans l'outil (menu > onglet > bouton), et un statut
+  étape par écran en trois lignes au plus (quoi, où, pourquoi), avec le chemin exact dans
+  l'outil (menu > onglet > bouton), et un statut
   (✅ fait, ⛔ bloqué, ⏳ à faire) une fois en cours de route. À utiliser sur « donne-moi les
   étapes », « liste des steps », « redonne la liste », « guide-moi », « /wnr-steps », « give me
   the steps », « walk me through », et sur « comment je fais pour » (un seul geste : réponse en
@@ -31,15 +32,34 @@ ordre, et où cliquer.
 
 ## 2. Le format
 
-Avant de commencer, les mêmes lignes sans ✅ ⛔ ⏳ (⚠️ et « Une fois … » restent). Dès
+Chaque étape tient en trois lignes au plus, chacune avec son rôle :
+
+1. **Quoi** : le statut, puis l'action, verbe à l'infinitif.
+2. **Où** : le chemin exact dans l'outil, les `>` en gras ; pour un ✅, le constat ; pour
+   un ⛔, qui on attend ; pour un ⚠️, ce qui arriverait.
+3. **Pourquoi ou ce qu'on doit voir** : le but de l'étape, ou le résultat qui prouve qu'elle
+   a marché. Seulement si elle aide à comprendre.
+
+Avant de commencer, les mêmes étapes sans ✅ ⛔ ⏳ (⚠️ et « Une fois … » restent). Dès
 qu'une étape est faite ou bloquée, toutes passent au format à statuts :
 
 ```markdown
-- ✅ <Étape faite>[ : <constat utile pour la suite>]
-- ⛔ <Étape bloquée> : on attend <qui>, sinon <suite prévue>
-- ⚠️ <Ce qu'il ne faut pas faire> : <conséquence>
-- ⏳ <Étape à faire> : <Outil > Menu > Bouton>
+- ✅ <Étape faite>
+  <Constat utile pour la suite>
+
+- ⛔ <Étape bloquée>
+  On attend <qui>, sinon <suite prévue>
+
+- ⚠️ <Ce qu'il ne faut pas faire>
+  <Ce qui arriverait>
+
+- ⏳ <Étape à faire>
+  <Outil> **>** <Menu> **>** <Bouton>
+  <Pourquoi, ou ce qu'on doit voir>
+
 - ⏳ Une fois <condition> : <action>
+  <Où ou pourquoi>
+
 <Une seule question qui propose l'étape suivante.>
 ```
 
@@ -47,13 +67,19 @@ Rien autour : ni titre, ni introduction, ni conclusion.
 
 ## 3. Les règles
 
-- **Une ligne = un écran** : verbe à l'infinitif, puis le chemin exact séparé par des `>`.
-  Les actions faites sur le même écran tiennent sur une ligne. Viser 3 à 8 lignes.
-- **Pas d'explication**, sauf une contrainte qui ferait échouer l'étape (« 11 caractères max »).
+- **Une étape = un écran**, trois lignes au plus : quoi, où, pourquoi. Les actions faites
+  sur le même écran tiennent dans la même étape. Viser 3 à 8 étapes.
+- **Une ligne vide entre deux étapes**, pour voir d'un coup d'œil où chacune commence.
+- **Une douzaine de mots au plus par ligne.** S'il en faut plus, l'étape cache deux écrans :
+  la couper en deux. La ligne du chemin seule peut dépasser.
+- **Expliquer juste assez** : la 3e ligne dit à quoi sert l'étape ou ce qu'on doit voir
+  après, pas comment marche l'outil. Une contrainte qui ferait échouer l'étape
+  (« 11 caractères max ») y a toujours sa place.
 - **Ce qui demande la main du lecteur** (connexion, double authentification, paiement, code
   reçu) : le dire dans l'étape même, « Ajouter le domaine, toi (connexion Brevo) : … ». Ce que
   Claude peut faire seul, il le propose dans la question finale.
-- **⚠️ une seule fois**, à l'impératif, juste avant l'étape où la fausse manœuvre tente.
+- **⚠️ une seule fois**, à l'impératif, juste avant l'étape où la fausse manœuvre tente,
+  avec toujours ce qui arriverait en 2e ligne.
 - **L'ordre est celui de l'exécution** : ✅ en tête, puis ⛔ et ⏳ dans l'ordre où elles se
   font, et les « Une fois … » à la fin.
 - **Emojis** : seulement ✅ ⛔ ⏳ ⚠️. Pas de cadratin.
@@ -73,11 +99,25 @@ Mettre à jour la liste déjà donnée, ne pas la recopier :
 « Redonne la liste » (domaine d'envoi Brevo d'une école, en cours) :
 
 ```markdown
-- ✅ Vérifier le compte Brevo : un seul compte, ecole-pyrene.fr absent
-- ✅ Demander à l'école si un autre compte Brevo détient ecole-pyrene.fr (mail du 16/11)
-- ⛔ Libérer ecole-pyrene.fr : on attend l'école, sinon ticket au support Brevo
-- ⚠️ Ne supprime aucun enregistrement `brevo-code` chez OVH : l'autre compte perdrait ses envois
-- ⏳ Une fois le domaine libre : l'ajouter, toi (connexion Brevo) : Settings > Senders, Domains & Dedicated IPs > Domains > Add a domain (chemin non vérifié)
-- ⏳ Une fois le domaine authentifié : déclarer bonjour@ecole-pyrene.fr comme expéditeur
+- ✅ Vérifier le compte Brevo
+  Un seul compte, et ecole-pyrene.fr n'y figure pas
+
+- ✅ Demander à l'école si un autre compte Brevo détient le domaine
+  Question posée dans le mail du 16/11
+
+- ⛔ Libérer ecole-pyrene.fr
+  On attend l'école, sinon ticket au support Brevo
+
+- ⚠️ Ne supprime aucun enregistrement `brevo-code` chez OVH
+  L'autre compte Brevo perdrait ses envois
+
+- ⏳ Une fois le domaine libre : l'ajouter, toi (connexion Brevo)
+  Settings **>** Senders, Domains & Dedicated IPs **>** Domains **>** Add a domain (chemin non vérifié)
+  Brevo affiche alors les réglages DNS à transmettre à Alexis
+
+- ⏳ Une fois le domaine authentifié : déclarer l'expéditeur
+  bonjour@ecole-pyrene.fr, l'adresse choisie par l'école
+  Les mails d'Onyx partiront alors de cette adresse
+
 Je prépare le ticket au support Brevo en attendant ?
 ```
