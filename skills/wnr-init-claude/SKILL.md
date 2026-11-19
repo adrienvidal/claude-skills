@@ -91,6 +91,7 @@ question sur la stack, et passer directement au **lot simple** plus bas.
 |---|---|
 | Qui travaille sur le projet ? | Adrien seul ; à plusieurs, avec qui |
 | Suivi dans Trello ? | Oui, je donne le lien du tableau ; non |
+| Lié à un dossier client dans Brain ? | Oui, lequel ; non |
 
 Si le projet est suivi dans Trello, lire le tableau par le MCP Trello
 (`trelloReadBoard` pour le nom et l'identifiant, `trelloReadList` avec
@@ -98,6 +99,16 @@ Si le projet est suivi dans Trello, lire le tableau par le MCP Trello
 section `## Trello`. Si le MCP ne répond pas, demander ces
 informations plutôt que de les deviner. Vérifier que les colonnes In progress,
 In review et Done existent ; sinon, utiliser les noms réels du tableau.
+
+Brain (`~/Workspace/apps/brain-webnrolls`) est le dépôt Viloris où vivent les
+emails, le CRM et les tâches de chaque client. Le lien sert quand le projet est
+construit pour un client : la reprise de session y lit ce qui s'est passé côté
+client (email parti, fichier reçu) et que le dépôt ignore. Si le projet est lié,
+proposer les dossiers existants (`ls ~/Workspace/apps/brain-webnrolls/clients/`)
+plutôt que de faire taper un nom, puis lire le nom exact de l'entreprise dans
+Neon, depuis la racine de Brain :
+`npm --prefix app run -s sql <<< "SELECT nom FROM entreprises WHERE nom ILIKE '%<mot>%';"`.
+Si rien ne correspond, demander le nom plutôt que de le deviner.
 
 **Lot 1 — Ce que l'application embarque** (projet fullstack ou atelier)
 
@@ -186,6 +197,8 @@ n'ajoute rien.
 | Adrien seul | Dans l'étape 5 du workflow git, garder seulement « Ne jamais fusionner sans accord explicite. » suivi de la phrase « Seule exception : … » sur les PR de fin de session, inchangée |
 | Pas de Trello | Supprimer la section `## Trello`. Dans le workflow git, retirer la carte des étapes 1 et 6, supprimer la phrase sur la carte à l'étape 4, et remplacer « attend dans In review » par « attend » à l'étape 5 |
 | Colonnes Trello nommées autrement | Remplacer In progress, In review et Done par les noms réels du tableau, dans le workflow git comme dans la section `## Trello` |
+| Lié à un dossier Brain | Remplacer `<dossier brain>` par le nom du dossier (`cabinet-serre`) et `<entreprise brain>` par le nom exact lu dans Neon |
+| Pas de dossier Brain | Supprimer la puce « Se mettre à jour avec Brain » de Session Continuity, avec ses sous-puces |
 | Branche de production nommée autrement | Utiliser le nom réel lu par `git branch -a` (par exemple `master`), jamais `main` par réflexe |
 | Branche `dev` ou `staging` absente du dépôt | Voir l'étape 4 : le fichier ne doit jamais renvoyer à une branche inexistante |
 | Projet simple | Supprimer les sections `## Stack` et `## Maquettes` en entier. Ne rien écrire sur le web, la base de données ou le déploiement : rien n'a été demandé, donc rien n'est connu, et un projet sans écran n'a rien à maquetter |
@@ -212,7 +225,8 @@ la créer et la pousser si un remote existe.
 
 Ajouter à la mémoire automatique du projet (`MEMORY.md`) un rappel : en début de
 session, chercher le fichier du jour dans `.claude/sessions/`. S'il y est déjà,
-ne rien ajouter.
+ne rien ajouter. Si le projet est lié à un dossier Brain, y ajouter aussi : puis
+lire Brain, dernière session du dossier et tâches ouvertes, en lecture seule.
 
 Puis une phrase, pas plus : ce fichier vit, les règles qui s'y ajouteront viendront
 des corrections réelles, pas de suppositions.

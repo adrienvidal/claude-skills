@@ -17,7 +17,8 @@
         "trello": "non",
         "environnements": "trois, dev → staging → main",
         "stack": "telle quelle",
-        "regles_metier": "les montants sont stockés en centimes ; une facture émise n'est plus modifiable, on émet un avoir"
+        "regles_metier": "les montants sont stockés en centimes ; une facture émise n'est plus modifiable, on émet un avoir",
+        "brain": "oui, dossier cabinet-serre, entreprise Cabinet SERRE"
       },
       "expected_output": "Un CLAUDE.md reprenant la base complète, workflow git sur dev, staging et main, RLS affirmé comme frontière de sécurité, et une section Règles métier.",
       "assertions": [
@@ -36,7 +37,8 @@
         "Une section « ## Maquettes » impose de maquetter tous les écrans avant d'écrire du code applicatif",
         "La navigation d'écran en écran par ancres portées par les boutons est explicitement demandée",
         "Le point d'arrêt de validation (aucun code applicatif avant accord sur les maquettes) figure noir sur blanc",
-        "Les états vide, chargement et erreur sont exigés en plus du chemin heureux"
+        "Les états vide, chargement et erreur sont exigés en plus du chemin heureux",
+        "Session Continuity lit la dernière session `*cabinet-serre*` de Brain et les tâches de l'entreprise « Cabinet SERRE », en lecture seule"
       ]
     },
     {
@@ -50,7 +52,8 @@
         "base_locale": "non",
         "environnements": "deux, dev → main",
         "stack": "retirer Prisma et Vercel Blob, les données viennent d'un import quotidien",
-        "regles_metier": "aucune"
+        "regles_metier": "aucune",
+        "brain": "non"
       },
       "expected_output": "Un CLAUDE.md amputé de tout ce qui a été écarté, sans mention résiduelle d'authentification, de Prisma, de Storage, de Playwright ni de Docker.",
       "assertions": [
@@ -63,7 +66,8 @@
         "Aucune règle ne fait référence à un utilisateur courant, à un espace ou à une invitation, ce qui n'aurait pas de sens sans authentification",
         "Aucun marqueur de gabarit ne subsiste et aucun emoji n'apparaît",
         "La section « ## Maquettes » est conservée : l'absence d'authentification ne retire pas les écrans",
-        "Aucune maquette d'écran de connexion ou de compte n'est exigée, l'application étant publique"
+        "Aucune maquette d'écran de connexion ou de compte n'est exigée, l'application étant publique",
+        "Aucune mention de Brain ne subsiste"
       ]
     },
     {
@@ -90,7 +94,8 @@
         "nom_objectif": "Sync-compta, synchronise les écritures comptables entre deux outils, tourne en cron",
         "nature": "projet simple",
         "verification": "aucune",
-        "regles_metier": "aucune"
+        "regles_metier": "aucune",
+        "brain": "non"
       },
       "expected_output": "Un CLAUDE.md réduit à la méthode de travail, sans stack ni maquettes, et dont le workflow git tourne sur dev et main, en quatre étapes.",
       "assertions": [
@@ -100,7 +105,8 @@
         "Aucune section « ## Maquettes » n'apparaît, ni aucune mention d'écran, de parcours ou de design",
         "L'étape de vérification du workflow git est supprimée et les étapes suivantes sont renumérotées",
         "La phrase sur l'écriture des tests est retirée de l'étape de commit",
-        "Les blocs invariants (Session Continuity, Archivage, Méthode de développement, Messages de commit) sont recopiés sans réécriture"
+        "Les blocs invariants (Session Continuity, Archivage, Méthode de développement, Messages de commit) sont recopiés sans réécriture",
+        "Aucune mention de Brain ne subsiste"
       ]
     },
     {
@@ -119,7 +125,8 @@
         "environnements": "deux, dev → main",
         "stack": "telle quelle",
         "creation": "en local et dans des robots planifiés",
-        "regles_metier": "aucune"
+        "regles_metier": "aucune",
+        "brain": "non"
       },
       "expected_output": "Un CLAUDE.md web (stack, maquettes) avec la section Architecture : atelier local, portail client juste après la stack, une connexion par code e-mail, et la mention des robots planifiés.",
       "assertions": [
@@ -131,7 +138,8 @@
         "Les robots planifiés (GitHub Actions) sont nommés dans la description de l'atelier, et aucun marqueur <robots> ne subsiste",
         "La section « ## Maquettes » est présente",
         "Le workflow git ne mentionne pas staging",
-        "Aucune section « ## Règles métier » ni « ## Trello »"
+        "Aucune section « ## Règles métier » ni « ## Trello »",
+        "Aucune mention de Brain ne subsiste"
       ]
     }
   ]

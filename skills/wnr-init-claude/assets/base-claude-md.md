@@ -3,6 +3,25 @@
 En début de session :
 
 - Lire le fichier de la dernière session dans `.claude/sessions/`
+- Se mettre à jour avec Brain (`~/Workspace/apps/brain-webnrolls`), où vivent les
+  emails, le CRM et les tâches du client :
+  - Lire sa dernière session du dossier : le fichier `*<dossier brain>*` le plus
+    récent à la racine de `.claude/sessions/`, à défaut dans `archive/`. En retenir
+    les « Attentes » et les « Reste à faire » qui touchent ce dépôt.
+  - Lire les tâches ouvertes du client dans Neon, depuis la racine de Brain :
+    ```
+    npm --prefix app run -s sql <<'SQL'
+    SELECT t.intitule, t.priorite, t.echeance FROM taches t
+    JOIN entreprises e ON e.id = t.entreprise_id
+    WHERE t.statut IN ('À faire','En cours') AND e.nom = '<entreprise brain>'
+    ORDER BY t.echeance NULLS LAST;
+    SQL
+    ```
+  - Lecture seule : on n'écrit jamais dans Brain depuis ici, ni session, ni tâche,
+    ni CRM. Ses règles sont dans son propre `CLAUDE.md`.
+  - Si Brain est plus récent que notre dernière session, sa priorité l'emporte dans
+    le bloc « Reprise ». Dire en une ligne ce qui en vient. L'administratif (emails,
+    contrat, facturation) ne s'y cite que d'un mot : il se traite dans Brain.
 - Identifier où on s'est arrêté et les blockers en cours
 - Recopier son bloc « Reprise » (à défaut, le rédiger), puis finir par une seule
   question qui porte la proposition
