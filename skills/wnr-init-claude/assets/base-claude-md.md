@@ -212,6 +212,11 @@ membre : ces gestes se font dans Trello.
   puis `delete`), sans demander : c'est l'exception à « toute suppression se
   confirme ». Jamais la branche de production `main` ni celle de préproduction
   `staging`. Le noter dans « Réalisé »
+- Déploiements Vercel réservés aux branches longues : `vercel.json` porte
+  `git.deploymentEnabled` avec `"**": false`, puis `main`, `staging` et `dev` à
+  `true`. Une branche de lot ne crée ni aperçu ni branche Neon : l'offre gratuite
+  plafonne à 100 déploiements par 24 h pour tout le compte. Ce qui ne se teste pas
+  en local (push, PWA, vrai e-mail) se teste sur l'aperçu de `dev`
 - Authentification par email et mot de passe via Neon Auth, pas de lien magique
   ni d'autre fournisseur sans le demander
 - Stockage de fichiers sur Vercel Blob
