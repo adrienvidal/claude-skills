@@ -4,7 +4,7 @@
     {
       "id": 1,
       "prompt": "Donne-moi les étapes pour ajouter chez OVH les enregistrements DNS que Brevo demande pour pyrene.fr : deux CNAME brevo1._domainkey et brevo2._domainkey, et un TXT brevo-code. Le mail de pyrene.fr passe par OVH et marche.",
-      "expected_output": "Liste à puces sans statuts, une étape par écran en trois lignes au plus (quoi, chemin OVH signalé non vérifié s'il n'a pas pu l'être, puis pourquoi ou ce qu'on doit voir), une ligne vide entre deux étapes, une douzaine de mots au plus par ligne hors chemin, la connexion OVH signalée dans l'étape qui la demande, un ⚠️ contre la suppression des enregistrements existants placé avant la première modification avec sa conséquence en 2e ligne, aucune explication du fonctionnement de l'outil, une seule question finale.",
+      "expected_output": "Étapes en paragraphes, sans tiret ni statut, titre en gras, une étape par écran en trois lignes au plus (quoi, chemin OVH signalé non vérifié s'il n'a pas pu l'être, puis pourquoi ou ce qu'on doit voir), une ligne vide entre deux étapes, une douzaine de mots au plus par ligne hors chemin, la connexion OVH signalée dans l'étape qui la demande, un ⚠️ contre la suppression des enregistrements existants placé avant la première modification avec sa conséquence en 2e ligne, aucune explication du fonctionnement de l'outil, une seule question finale.",
       "files": []
     },
     {

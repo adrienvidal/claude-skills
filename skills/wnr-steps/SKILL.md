@@ -1,7 +1,7 @@
 ---
 name: wnr-steps
 description: >-
-  Donne les étapes pour aller de là où on en est jusqu'à un but précis, en puces courtes : une
+  Donne les étapes pour aller de là où on en est jusqu'à un but précis, en étapes courtes : une
   étape par écran en trois lignes au plus (quoi, où, pourquoi), avec le chemin exact dans
   l'outil (menu > onglet > bouton), et un statut
   (✅ fait, ⛔ bloqué, ⏳ à faire) une fois en cours de route. À utiliser sur « donne-moi les
@@ -44,21 +44,21 @@ Avant de commencer, les mêmes étapes sans ✅ ⛔ ⏳ (⚠️ et « Une fois �
 qu'une étape est faite ou bloquée, toutes passent au format à statuts :
 
 ```markdown
-- ✅ <Étape faite>
-  <Constat utile pour la suite>
+✅ **<Étape faite>**
+<Constat utile pour la suite>
 
-- ⛔ <Étape bloquée>
-  On attend <qui>, sinon <suite prévue>
+⛔ **<Étape bloquée>**
+On attend <qui>, sinon <suite prévue>
 
-- ⚠️ <Ce qu'il ne faut pas faire>
-  <Ce qui arriverait>
+⚠️ **<Ce qu'il ne faut pas faire>**
+<Ce qui arriverait>
 
-- ⏳ <Étape à faire>
-  <Outil> **>** <Menu> **>** <Bouton>
-  <Pourquoi, ou ce qu'on doit voir>
+⏳ **<Étape à faire>**
+<Outil> **>** <Menu> **>** <Bouton>
+<Pourquoi, ou ce qu'on doit voir>
 
-- ⏳ Une fois <condition> : <action>
-  <Où ou pourquoi>
+⏳ **Une fois <condition> : <action>**
+<Où ou pourquoi>
 
 <Une seule question qui propose l'étape suivante.>
 ```
@@ -69,6 +69,9 @@ Rien autour : ni titre, ni introduction, ni conclusion.
 
 - **Une étape = un écran**, trois lignes au plus : quoi, où, pourquoi. Les actions faites
   sur le même écran tiennent dans la même étape. Viser 3 à 8 étapes.
+- **Pas de liste à puces** : chaque étape est un petit paragraphe qui commence par son statut (s'il y en a)
+  et son titre en gras, sans tiret. Le terminal efface les lignes vides entre les
+  puces et colle les étapes ; entre deux paragraphes, il les garde.
 - **Une ligne vide entre deux étapes**, pour voir d'un coup d'œil où chacune commence.
 - **Une douzaine de mots au plus par ligne.** S'il en faut plus, l'étape cache deux écrans :
   la couper en deux. La ligne du chemin seule peut dépasser.
@@ -99,25 +102,25 @@ Mettre à jour la liste déjà donnée, ne pas la recopier :
 « Redonne la liste » (domaine d'envoi Brevo d'une école, en cours) :
 
 ```markdown
-- ✅ Vérifier le compte Brevo
-  Un seul compte, et ecole-pyrene.fr n'y figure pas
+✅ **Vérifier le compte Brevo**
+Un seul compte, et ecole-pyrene.fr n'y figure pas
 
-- ✅ Demander à l'école si un autre compte Brevo détient le domaine
-  Question posée dans le mail du 16/11
+✅ **Demander à l'école si un autre compte Brevo détient le domaine**
+Question posée dans le mail du 16/11
 
-- ⛔ Libérer ecole-pyrene.fr
-  On attend l'école, sinon ticket au support Brevo
+⛔ **Libérer ecole-pyrene.fr**
+On attend l'école, sinon ticket au support Brevo
 
-- ⚠️ Ne supprime aucun enregistrement `brevo-code` chez OVH
-  L'autre compte Brevo perdrait ses envois
+⚠️ **Ne supprime aucun enregistrement `brevo-code` chez OVH**
+L'autre compte Brevo perdrait ses envois
 
-- ⏳ Une fois le domaine libre : l'ajouter, toi (connexion Brevo)
-  Settings **>** Senders, Domains & Dedicated IPs **>** Domains **>** Add a domain (chemin non vérifié)
-  Brevo affiche alors les réglages DNS à transmettre à Alexis
+⏳ **Une fois le domaine libre : l'ajouter, toi (connexion Brevo)**
+Settings **>** Senders, Domains & Dedicated IPs **>** Domains **>** Add a domain (chemin non vérifié)
+Brevo affiche alors les réglages DNS à transmettre à Alexis
 
-- ⏳ Une fois le domaine authentifié : déclarer l'expéditeur
-  bonjour@ecole-pyrene.fr, l'adresse choisie par l'école
-  Les mails d'Onyx partiront alors de cette adresse
+⏳ **Une fois le domaine authentifié : déclarer l'expéditeur**
+bonjour@ecole-pyrene.fr, l'adresse choisie par l'école
+Les mails d'Onyx partiront alors de cette adresse
 
 Je prépare le ticket au support Brevo en attendant ?
 ```
